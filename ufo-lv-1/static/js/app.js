@@ -27,7 +27,7 @@ data.forEach(function(aliens) {
 filter-btn
 
 // Select the button
-var button = d3.select("#button");
+var button = d3.select("#filter-btn");
 
 // Select the form
 var form = d3.select("#form");
