@@ -24,7 +24,7 @@ data.forEach(function(aliens) {
   });
 });
 
-filter-btn
+// filter-btn
 
 // Select the button
 var button = d3.select("#filter-btn");
@@ -35,3 +35,30 @@ var form = d3.select("#form");
 // Create event handlers 
 button.on("click", runEnter);
 form.on("submit",runEnter);
+
+function runEnter () {
+  d3.event.preventDefault();
+
+  var inputElement = d3.select("#datetime");
+
+  // Get the value property of the input element
+  var inputValue = inputElement.property("value");
+
+  // Print the value to the console
+  console.log(inputValue);
+
+  var inputData = tableData.filter(tableData => tableData.datetime === inputValue);
+  console.log(inputData);
+
+  inputData.forEach(function(aliens) {
+    var tbody = d3.select('tbody');
+    var trow = tbody.append('tr');
+    Object.entries(aliens).forEach(function([key,value]) {
+      var cell = row.append('td');
+
+      cell.text(value);
+
+    });
+  });
+}
+
